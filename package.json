@@ -1,0 +1,64 @@
+{
+  "name": "pi-codex-computer-use",
+  "version": "0.1.0",
+  "description": "A Pi extension for using Codex Computer Use",
+  "keywords": [
+    "pi",
+    "pi-extension",
+    "codex",
+    "computer-use",
+    "desktop-control"
+  ],
+  "homepage": "https://github.com/danecando/pi-codex-computer-use#readme",
+  "bugs": {
+    "url": "https://github.com/danecando/pi-codex-computer-use/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danecando/pi-codex-computer-use.git"
+  },
+  "license": "MIT",
+  "author": "Dane Grant",
+  "type": "module",
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "skills"
+  ],
+  "scripts": {
+    "dev": "pi -e .",
+    "dev:tmux": "bash scripts/dev-tmux.sh",
+    "probe:status": "tsx scripts/probe-status.ts",
+    "probe:list-apps": "tsx scripts/probe-list-apps.ts",
+    "probe:get-state": "tsx scripts/probe-get-state.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run test"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": ">=0.79.0",
+    "@earendil-works/pi-coding-agent": ">=0.79.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.79.0",
+    "@earendil-works/pi-coding-agent": "^0.79.0",
+    "@types/node": "^24.12.4",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.8"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}
